@@ -39,7 +39,7 @@ git add .
 git commit -m "Initial commit"
 
 # Tambah remote repository
-git remote add origin https://github.com/username/webtutor-sib.git
+git remote add origin https://github.com/indahAmriani/webtutor-sib.git
 
 # Push ke GitHub
 git branch -M main
