@@ -11,19 +11,39 @@
     <nav class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <h2>SIPALING</h2>
-            <p>Panduan Penggunaan</p>
+            <p class="subtitle">Sistem Informasi Pengujian Laboratorium</p>
         </div>
-        <ul class="sidebar-menu">
-            <li><a href="#" class="menu-item active" data-page="home">🏠 Beranda</a></li>
-            <li><a href="#" class="menu-item" data-page="login">🔐 Login Sistem</a></li>
-            <li><a href="#" class="menu-item" data-page="dashboard">📊 Dashboard</a></li>
-            <li><a href="#" class="menu-item" data-page="data-pelanggan">👥 Data Pelanggan</a></li>
-            <li><a href="#" class="menu-item" data-page="data-ttd">📝 Data TTD & Rekening</a></li>
-            <li><a href="#" class="menu-item" data-page="buat-surat">📄 Buat Surat Biaya</a></li>
-            <li><a href="#" class="menu-item" data-page="list-surat">📋 List Surat Biaya</a></li>
-            <li><a href="#" class="menu-item" data-page="matriks">📈 Matriks & Parameter</a></li>
-            <li><a href="#" class="menu-item" data-page="user-sistem">👤 User Sistem</a></li>
-            <li><a href="#" class="menu-item" data-page="logout">🚪 Logout</a></li>
+        <ul class="nav-menu">
+            <li><a href="#" class="nav-link active" data-section="home">
+                <span class="icon">🏠</span> Beranda
+            </a></li>
+            <li><a href="#" class="nav-link" data-section="login">
+                <span class="icon">🔐</span> Login 
+            </a></li>
+            <li><a href="#" class="nav-link" data-section="dashboard">
+                <span class="icon">📊</span> Dashboard
+            </a></li>
+            <li><a href="#" class="nav-link" data-section="pelanggan">
+                <span class="icon">👥</span> Data Pelanggan
+            </a></li>
+            <li><a href="#" class="nav-link" data-section="ttd">
+                <span class="icon">✍️</span> TTD & Rekening
+            </a></li>
+            <li><a href="#" class="nav-link" data-section="surat-biaya">
+                <span class="icon">📝</span> Buat Surat Biaya
+            </a></li>
+            <li><a href="#" class="nav-link" data-section="list-surat">
+                <span class="icon">📋</span> List Surat Biaya
+            </a></li>
+            <li><a href="#" class="nav-link" data-section="matriks">
+                <span class="icon">🔬</span> Matriks & Parameter
+            </a></li>
+            <li><a href="#" class="nav-link" data-section="user">
+                <span class="icon">👤</span> User Sistem
+            </a></li>
+            <li><a href="#" class="nav-link" data-section="logout">
+                <span class="icon">🚪</span> Logout
+            </a></li>
         </ul>
     </nav>
 
@@ -32,628 +52,794 @@
         <!-- Mobile Menu Toggle -->
         <button class="menu-toggle" id="menuToggle">☰</button>
 
-        <!-- Home Page -->
-        <section class="page active" id="home">
+        <!-- Home Section -->
+        <section class="content-section active" id="home">
             <div class="hero">
                 <h1>Panduan Penggunaan SIPALING</h1>
-                <p class="subtitle">Sistem Informasi Pelayanan DLHK</p>
-                <p class="description">
-                    Selamat datang di panduan penggunaan aplikasi SIPALING. 
-                    Dokumentasi ini akan membantu Anda memahami cara menggunakan 
-                    aplikasi dengan mudah dan efektif.
+                <p class="hero-subtitle">Sistem Informasi Pengujian Laboratorium</p>
+                <p class="hero-description">
+                    SIPALING adalah aplikasi berbasis web yang digunakan untuk mengelola proses pengujian laboratorium, 
+                    mulai dari data pelanggan, perhitungan biaya pengujian, hingga pembuatan surat biaya secara otomatis.
                 </p>
-                <div class="hero-buttons">
-                    <button class="btn btn-primary" onclick="navigateTo('login')">Mulai Panduan</button>
-                </div>
+                <button class="btn-primary" onclick="navigateTo('login')">Mulai Panduan →</button>
             </div>
 
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Mudah Digunakan</h3>
-                    <p>Antarmuka yang sederhana dan intuitif untuk pengguna awam</p>
+                    <div class="feature-icon">📊</div>
+                    <h3>Dashboard</h3>
+                    <p>Ringkasan data dan statistik pengujian laboratorium</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">📚</div>
-                    <h3>Langkah Demi Langkah</h3>
-                    <p>Panduan detail dengan screenshot dan video tutorial</p>
+                    <div class="feature-icon">👥</div>
+                    <h3>Data Pelanggan</h3>
+                    <p>Kelola data pelanggan dan informasi perusahaan</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Responsive</h3>
-                    <p>Dapat diakses melalui laptop maupun smartphone</p>
+                    <div class="feature-icon">📝</div>
+                    <h3>Surat Biaya</h3>
+                    <p>Buat surat biaya dengan perhitungan otomatis</p>
                 </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔬</div>
+                    <h3>Matriks & Parameter</h3>
+                    <p>Kelola jenis pengujian dan tarif parameter</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>ℹ️ Tentang Aplikasi</h3>
+                <p>
+                    Aplikasi SIPALING dibangun menggunakan <strong>Laravel</strong> untuk backend dan <strong>Vue.js</strong> untuk frontend.
+                    Sistem ini membedakan hak akses antara <strong>Admin</strong> dan <strong>Pegawai</strong>, 
+                    di mana Admin memiliki akses penuh untuk mengelola data, sedangkan Pegawai dapat melihat data dan mengunduh dokumen.
+                </p>
             </div>
         </section>
 
-        <!-- Login Page -->
-        <section class="page" id="login">
-            <div class="guide-container">
-                <div class="guide-header">
-                    <h1>Login Sistem</h1>
-                    <p>Langkah pertama untuk mengakses aplikasi SIPALING</p>
-                </div>
+        <!-- Login Section -->
+        <section class="content-section" id="login">
+            <div class="section-header">
+                <h1>Login Sistem</h1>
+                <p>Langkah pertama untuk mengakses aplikasi SIPALING</p>
+            </div>
 
-                <div class="guide-content">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Buka Halaman Login</h3>
-                            <p>Buka browser dan akses alamat aplikasi SIPALING yang telah disediakan.</p>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/login-1.jpg" alt="Halaman Login" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Halaman Login</span>
-                                    <small>Tempatkan gambar: assets/images/login-1.jpg</small>
-                                </div>
-                            </div>
+            <div class="tutorial-card">
+                <h2>📋 Langkah-langkah Login</h2>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Buka Halaman Login</h3>
+                        <p>Akses halaman login aplikasi SIPALING melalui browser.</p>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Halaman Login</p>
                         </div>
-                    </div>
-
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>Masukkan Username dan Password</h3>
-                            <p>Ketik username dan password yang telah diberikan oleh administrator sistem.</p>
-                            <ul class="instruction-list">
-                                <li>Username: masukkan username Anda</li>
-                                <li>Password: masukkan password Anda</li>
-                                <li>Klik tombol "Login"</li>
-                            </ul>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/login-2.jpg" alt="Form Login" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Form Login</span>
-                                    <small>Tempatkan gambar: assets/images/login-2.jpg</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="video-section">
-                        <h3>🎥 Video Tutorial Login</h3>
-                        <div class="video-container">
-                            <video controls>
-                                <source src="videos/login.mp4" type="video/mp4">
-                                Browser Anda tidak mendukung pemutaran video.
-                            </video>
-                        </div>
-                        <p class="video-note">Video tutorial akan menunjukkan langkah-langkah login secara detail.</p>
                     </div>
                 </div>
 
-                <div class="guide-navigation">
-                    <button class="btn btn-secondary" onclick="navigateTo('home')">← Sebelumnya</button>
-                    <button class="btn btn-primary" onclick="navigateTo('dashboard')">Selanjutnya →</button>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Masukkan Username dan Password</h3>
+                        <p>Isi kolom username dan password yang telah terdaftar di sistem.</p>
+                        <ul class="info-list">
+                            <li><strong>Username:</strong> Nama pengguna yang terdaftar</li>
+                            <li><strong>Password:</strong> Kata sandi akun (minimal 8 karakter, kombinasi huruf besar/kecil, angka, dan simbol)</li>
+                        </ul>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Form Login</p>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Klik Tombol Login</h3>
+                        <p>Tekan tombol "Login" untuk masuk ke sistem.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Dashboard Akan Muncul</h3>
+                        <p>Setelah berhasil login, Anda akan diarahkan ke halaman Dashboard sesuai dengan role (Admin atau Pegawai).</p>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Dashboard</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-section">
+                    <h3>🎥 Video Tutorial Login</h3>
+                    <div class="video-placeholder">
+                        <video controls width="100%">
+                            <source src="videos/login.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung tag video.
+                        </video>
+                    </div>
+                </div>
+
+                <div class="note-box warning">
+                    <h4>⚠️ Lupa Password?</h4>
+                    <p>Jika Anda lupa password, klik menu "Lupa Password?" dan hubungi Admin sistem. Fitur reset password tidak tersedia secara mandiri.</p>
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button class="btn-secondary" onclick="navigateTo('home')">← Kembali</button>
+                <button class="btn-primary" onclick="navigateTo('dashboard')">Lanjut ke Dashboard →</button>
             </div>
         </section>
 
-        <!-- Dashboard Page -->
-        <section class="page" id="dashboard">
-            <div class="guide-container">
-                <div class="guide-header">
-                    <h1>Dashboard</h1>
-                    <p>Halaman utama setelah berhasil login</p>
+        <!-- Dashboard Section -->
+        <section class="content-section" id="dashboard">
+            <div class="section-header">
+                <h1>Dashboard</h1>
+                <p>Halaman utama yang menampilkan ringkasan data sistem</p>
+            </div>
+
+            <div class="tutorial-card">
+                <h2>📋 Fitur Dashboard</h2>
+                
+                <div class="info-box">
+                    <h3>📊 Informasi yang Ditampilkan</h3>
+                    <ul class="info-list">
+                        <li><strong>Total Surat Biaya:</strong> Jumlah seluruh surat biaya yang telah dibuat</li>
+                        <li><strong>Total Pelanggan:</strong> Jumlah pelanggan yang terdaftar di sistem</li>
+                        <li><strong>Total Pendapatan:</strong> Total pendapatan dari seluruh surat biaya</li>
+                        <li><strong>Status Pembayaran:</strong> Jumlah surat biaya berdasarkan status (Belum Bayar, Bayar Sebagian, Lunas)</li>
+                    </ul>
                 </div>
 
-                <div class="guide-content">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Overview Dashboard</h3>
-                            <p>Dashboard menampilkan ringkasan informasi dan menu utama aplikasi.</p>
-                            <ul class="instruction-list">
-                                <li>Statistik data pelanggan</li>
-                                <li>Menu navigasi fitur-fitur utama</li>
-                                <li>Informasi user yang sedang login</li>
-                            </ul>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/dashboard-1.jpg" alt="Dashboard" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Dashboard</span>
-                                    <small>Tempatkan gambar: assets/images/dashboard-1.jpg</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>Navigasi Menu</h3>
-                            <p>Gunakan menu di sidebar untuk mengakses berbagai fitur aplikasi.</p>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/dashboard-2.jpg" alt="Menu Navigasi" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Menu Navigasi</span>
-                                    <small>Tempatkan gambar: assets/images/dashboard-2.jpg</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="video-section">
-                        <h3>🎥 Video Tutorial Dashboard</h3>
-                        <div class="video-container">
-                            <video controls>
-                                <source src="videos/dashboard.mp4" type="video/mp4">
-                                Browser Anda tidak mendukung pemutaran video.
-                            </video>
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Rekapitulasi Pendapatan</h3>
+                        <p>Dashboard menampilkan tabel rekapitulasi pendapatan per matriks maupun per parameter yang dapat difilter berdasarkan bulan dan tahun.</p>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Tabel Rekapitulasi</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="guide-navigation">
-                    <button class="btn btn-secondary" onclick="navigateTo('login')">← Sebelumnya</button>
-                    <button class="btn btn-primary" onclick="navigateTo('data-pelanggan')">Selanjutnya →</button>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Daftar Surat Biaya Terbaru</h3>
+                        <p>Menampilkan daftar surat biaya yang dibuat pada bulan berjalan.</p>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Daftar Surat Biaya</p>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="comparison-box">
+                    <h3>👤 Perbedaan Tampilan Berdasarkan Role</h3>
+                    
+                    <div class="role-section">
+                        <h4>🔑 Role Admin</h4>
+                        <ul class="info-list">
+                            <li>Dapat melihat seluruh informasi aktivitas sistem</li>
+                            <li>Dapat menghapus surat biaya</li>
+                            <li>Dapat mengunduh dokumen Word (.docx)</li>
+                        </ul>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Dashboard Admin</p>
+                        </div>
+                    </div>
+
+                    <div class="role-section">
+                        <h4>👷 Role Pegawai</h4>
+                        <ul class="info-list">
+                            <li>Dapat memantau informasi surat biaya</li>
+                            <li>Hanya dapat mengunduh dokumen Word (.docx)</li>
+                            <li>Tidak dapat menghapus data</li>
+                        </ul>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Dashboard Pegawai</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-section">
+                    <h3>🎥 Video Tutorial Dashboard</h3>
+                    <div class="video-placeholder">
+                        <video controls width="100%">
+                            <source src="videos/dashboard.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung tag video.
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button class="btn-secondary" onclick="navigateTo('login')">← Kembali</button>
+                <button class="btn-primary" onclick="navigateTo('pelanggan')">Lanjut ke Data Pelanggan →</button>
             </div>
         </section>
 
-        <!-- Data Pelanggan Page -->
-        <section class="page" id="data-pelanggan">
-            <div class="guide-container">
-                <div class="guide-header">
-                    <h1>Data Pelanggan</h1>
-                    <p>Fitur untuk mengelola data pelanggan</p>
+        <!-- Data Pelanggan Section -->
+        <section class="content-section" id="pelanggan">
+            <div class="section-header">
+                <h1>Data Pelanggan</h1>
+                <p>Kelola data pelanggan (Hanya untuk Admin)</p>
+            </div>
+
+            <div class="tutorial-card">
+                <div class="note-box info">
+                    <h4>ℹ️ Akses Terbatas</h4>
+                    <p>Halaman ini hanya dapat diakses oleh pengguna dengan role <strong>Admin</strong>.</p>
                 </div>
 
-                <div class="guide-content">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Mengakses Menu Data Pelanggan</h3>
-                            <p>Klik menu "Data Pelanggan" di sidebar untuk membuka halaman pengelolaan data pelanggan.</p>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/pelanggan-1.jpg" alt="Menu Data Pelanggan" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Menu Data Pelanggan</span>
-                                    <small>Tempatkan gambar: assets/images/pelanggan-1.jpg</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>Menambah Data Pelanggan Baru</h3>
-                            <p>Klik tombol "Tambah" untuk menambahkan data pelanggan baru.</p>
-                            <ul class="instruction-list">
-                                <li>Isi semua kolom yang diperlukan</li>
-                                <li>Klik tombol "Simpan"</li>
-                                <li>Data akan tersimpan dalam sistem</li>
-                            </ul>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/pelanggan-2.jpg" alt="Form Tambah Pelanggan" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Form Tambah Pelanggan</span>
-                                    <small>Tempatkan gambar: assets/images/pelanggan-2.jpg</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3>Mengedit dan Menghapus Data</h3>
-                            <p>Gunakan tombol Edit atau Hapus pada setiap baris data untuk mengubah atau menghapus data pelanggan.</p>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/pelanggan-3.jpg" alt="Edit Hapus Data" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Edit Hapus Data</span>
-                                    <small>Tempatkan gambar: assets/images/pelanggan-3.jpg</small>
-                                </div>
-                            </div>
+                <h2>📋 Langkah-langkah Mengelola Data Pelanggan</h2>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Buka Menu Data Pelanggan</h3>
+                        <p>Klik menu "Data Pelanggan" pada sidebar navigasi.</p>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Halaman Data Pelanggan</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="guide-navigation">
-                    <button class="btn btn-secondary" onclick="navigateTo('dashboard')">← Sebelumnya</button>
-                    <button class="btn btn-primary" onclick="navigateTo('data-ttd')">Selanjutnya →</button>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Tambah Pelanggan Baru</h3>
+                        <p>Klik tombol "Tambah Pelanggan" untuk menambah data pelanggan baru.</p>
+                        <ul class="info-list">
+                            <li>Isi nama pelanggan</li>
+                            <li>Isi bidang usaha</li>
+                            <li>Isi personil penghubung</li>
+                            <li>Isi alamat lengkap</li>
+                        </ul>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Form Tambah Pelanggan</p>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Edit Data Pelanggan</h3>
+                        <p>Klik tombol edit pada baris pelanggan yang ingin diubah datanya.</p>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Form Edit Pelanggan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Hapus Data Pelanggan</h3>
+                        <p>Klik tombol hapus pada baris pelanggan. Sistem akan menampilkan dialog konfirmasi sebelum menghapus data.</p>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Dialog Konfirmasi Hapus</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Cari Pelanggan</h3>
+                        <p>Gunakan fitur pencarian (search) untuk mencari pelanggan berdasarkan nama atau informasi lainnya.</p>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Fitur Pencarian</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button class="btn-secondary" onclick="navigateTo('dashboard')">← Kembali</button>
+                <button class="btn-primary" onclick="navigateTo('ttd')">Lanjut ke TTD & Rekening →</button>
             </div>
         </section>
 
-        <!-- Data TTD & Rekening Page -->
-        <section class="page" id="data-ttd">
-            <div class="guide-container">
-                <div class="guide-header">
-                    <h1>Data TTD dan Rekening</h1>
-                    <p>Fitur untuk mengelola data tanda tangan dan rekening</p>
+        <!-- TTD & Rekening Section -->
+        <section class="content-section" id="ttd">
+            <div class="section-header">
+                <h1>TTD & Rekening</h1>
+                <p>Kelola data tanda tangan dan nomor rekening (Hanya untuk Admin)</p>
+            </div>
+
+            <div class="tutorial-card">
+                <div class="note-box info">
+                    <h4>ℹ️ Akses Terbatas</h4>
+                    <p>Halaman ini hanya dapat diakses oleh pengguna dengan role <strong>Admin</strong>.</p>
                 </div>
 
-                <div class="guide-content">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Mengakses Menu Data TTD dan Rekening</h3>
-                            <p>Klik menu "Data TTD dan Rekening" di sidebar untuk membuka halaman pengelolaan data.</p>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/ttd-1.jpg" alt="Menu Data TTD" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Menu Data TTD</span>
-                                    <small>Tempatkan gambar: assets/images/ttd-1.jpg</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>Menambah Data TTD</h3>
-                            <p>Klik tombol "Tambah" untuk menambahkan data tanda tangan baru.</p>
-                            <ul class="instruction-list">
-                                <li>Upload gambar tanda tangan</li>
-                                <li>Isi informasi penandatangan</li>
-                                <li>Klik tombol "Simpan"</li>
-                            </ul>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/ttd-2.jpg" alt="Form Tambah Data TTD" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Form Tambah Data TTD</span>
-                                    <small>Tempatkan gambar: assets/images/ttd-2.jpg</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3>Menambah Data Rekening</h3>
-                            <p>Klik tombol "Tambah Rekening" untuk menambahkan data rekening baru.</p>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/ttd-3.jpg" alt="Form Tambah Rekening" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Form Tambah Rekening</span>
-                                    <small>Tempatkan gambar: assets/images/ttd-3.jpg</small>
-                                </div>
-                            </div>
+                <h2>📋 Bagian 1: Data Tanda Tangan</h2>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Fungsi Data Tanda Tangan</h3>
+                        <p>Menyimpan informasi pejabat yang akan bertanda tangan pada dokumen surat biaya.</p>
+                        <ul class="info-list">
+                            <li><strong>Jabatan:</strong> Posisi pejabat penanda tangan</li>
+                            <li><strong>Nama:</strong> Nama lengkap pejabat</li>
+                            <li><strong>NIP:</strong> Nomor Induk Pegawai</li>
+                        </ul>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Halaman Data TTD</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="guide-navigation">
-                    <button class="btn btn-secondary" onclick="navigateTo('data-pelanggan')">← Sebelumnya</button>
-                    <button class="btn btn-primary" onclick="navigateTo('buat-surat')">Selanjutnya →</button>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Tambah/Edit/Hapus Data TTD</h3>
+                        <p>Sama seperti data pelanggan, Anda dapat menambah, mengubah, atau menghapus data tanda tangan.</p>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Form Data TTD</p>
+                        </div>
+                    </div>
                 </div>
+
+                <h2>📋 Bagian 2: Data Nomor Rekening</h2>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Fungsi Data Nomor Rekening</h3>
+                        <p>Menyimpan informasi rekening tujuan pembayaran yang akan dicantumkan pada surat biaya.</p>
+                        <ul class="info-list">
+                            <li><strong>Nomor Rekening:</strong> Nomor rekening tujuan</li>
+                            <li><strong>Nama Bank:</strong> Nama bank</li>
+                            <li><strong>Atas Nama:</strong> Pemilik rekening</li>
+                        </ul>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Halaman Nomor Rekening</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Tambah/Edit/Hapus Data Rekening</h3>
+                        <p>Kelola data rekening dengan fitur tambah, ubah, dan hapus.</p>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Form Data Rekening</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button class="btn-secondary" onclick="navigateTo('pelanggan')">← Kembali</button>
+                <button class="btn-primary" onclick="navigateTo('surat-biaya')">Lanjut ke Buat Surat Biaya →</button>
             </div>
         </section>
 
-        <!-- Buat Surat Biaya Page -->
-        <section class="page" id="buat-surat">
-            <div class="guide-container">
-                <div class="guide-header">
-                    <h1>Buat Surat Biaya</h1>
-                    <p>Fitur untuk membuat surat biaya pelanggan</p>
+        <!-- Buat Surat Biaya Section -->
+        <section class="content-section" id="surat-biaya">
+            <div class="section-header">
+                <h1>Buat Surat Biaya</h1>
+                <p>Halaman inti untuk menerbitkan surat biaya baru (Hanya untuk Admin)</p>
+            </div>
+
+            <div class="tutorial-card">
+                <div class="note-box info">
+                    <h4>ℹ️ Akses Terbatas</h4>
+                    <p>Halaman ini hanya dapat diakses oleh pengguna dengan role <strong>Admin</strong>.</p>
                 </div>
 
-                <div class="guide-content">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Mengakses Menu Buat Surat Biaya</h3>
-                            <p>Klik menu "Buat Surat Biaya" di sidebar untuk membuka halaman pembuatan surat.</p>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/surat-1.jpg" alt="Menu Buat Surat" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Menu Buat Surat</span>
-                                    <small>Tempatkan gambar: assets/images/surat-1.jpg</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>Pilih Pelanggan</h3>
-                            <p>Pilih pelanggan dari daftar yang tersedia untuk membuat surat biaya.</p>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/surat-2.jpg" alt="Pilih Pelanggan" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Pilih Pelanggan</span>
-                                    <small>Tempatkan gambar: assets/images/surat-2.jpg</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3>Isi Detail Surat</h3>
-                            <p>Isi semua informasi yang diperlukan untuk surat biaya.</p>
-                            <ul class="instruction-list">
-                                <li>Pilih periode tagihan</li>
-                                <li>Konfirmasi data rekening</li>
-                                <li>Klik tombol "Generate Surat"</li>
-                            </ul>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/surat-3.jpg" alt="Isi Detail Surat" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Isi Detail Surat</span>
-                                    <small>Tempatkan gambar: assets/images/surat-3.jpg</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="video-section">
-                        <h3>🎥 Video Tutorial Buat Surat Biaya</h3>
-                        <div class="video-container">
-                            <video controls>
-                                <source src="videos/surat-biaya.mp4" type="video/mp4">
-                                Browser Anda tidak mendukung pemutaran video.
-                            </video>
+                <h2>📋 Tahapan Pembuatan Surat Biaya</h2>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Isi Informasi Dasar</h3>
+                        <p>Mengisi data dasar surat biaya:</p>
+                        <ul class="info-list">
+                            <li><strong>Tanggal Surat:</strong> Tanggal penerbitan surat</li>
+                            <li><strong>Pilih Pelanggan:</strong> Pilih dari data pelanggan yang tersedia</li>
+                            <li><strong>Pilih Tanda Tangan:</strong> Pilih pejabat penanda tangan</li>
+                            <li><strong>Pilih Nomor Rekening:</strong> Pilih rekening tujuan pembayaran</li>
+                        </ul>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Bagian Informasi Dasar</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="guide-navigation">
-                    <button class="btn btn-secondary" onclick="navigateTo('data-ttd')">← Sebelumnya</button>
-                    <button class="btn btn-primary" onclick="navigateTo('list-surat')">Selanjutnya →</button>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Tambah Biaya Pengujian Sampel</h3>
+                        <p>Menambahkan biaya pengujian sampel:</p>
+                        <ul class="info-list">
+                            <li>Pilih <strong>Matriks</strong> pengujian (misal: Air Bersih, Air Laut, Udara Ambient)</li>
+                            <li>Pilih satu atau lebih <strong>Parameter</strong> pengujian pada matriks tersebut</li>
+                            <li>Isi <strong>Volume</strong> untuk setiap parameter</li>
+                            <li>Harga parameter akan otomatis terisi</li>
+                            <li>Sistem menghitung sub total per matriks secara otomatis</li>
+                        </ul>
+                        <div class="note-box tip">
+                            <h4>💡 Fitur Subkon</h4>
+                            <p>Centang checkbox "Subkon" jika sampel disubkontrakkan. Ini akan menambah keterangan "Tanda (*) Sampel yang disubkon" pada catatan.</p>
+                        </div>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Bagian Biaya Pengujian Sampel</p>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Isi Biaya Sampling (Operasional)</h3>
+                        <p>Mengisi biaya operasional secara manual:</p>
+                        <ul class="info-list">
+                            <li><strong>Uang Harian PPC (OH):</strong> Harga satuan × volume</li>
+                            <li><strong>Transport PPC (OT):</strong> Harga satuan × volume</li>
+                            <li><strong>Akomodasi PPC (OK):</strong> Harga satuan × volume</li>
+                            <li><strong>Penyeberangan Mobil Sampling (PP):</strong> Harga satuan × volume</li>
+                            <li><strong>BBM Kendaraan Sampling:</strong> Harga satuan × volume</li>
+                            <li><strong>BBM Genset:</strong> Harga satuan × volume</li>
+                        </ul>
+                        <p>Sistem otomatis mengalikan harga satuan dengan volume untuk mendapatkan jumlah biaya.</p>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Bagian Biaya Sampling</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Isi Catatan dan Status Pembayaran</h3>
+                        <ul class="info-list">
+                            <li><strong>Catatan:</strong> Isi catatan tambahan (opsional)</li>
+                            <li><strong>Status Pembayaran:</strong> Pilih status (Belum Bayar, Bayar Sebagian, atau Lunas)</li>
+                        </ul>
+                        <div class="note-box tip">
+                            <h4>💡 Status Bayar Sebagian</h4>
+                            <p>Jika memilih "Bayar Sebagian", sistem akan menampilkan kolom jumlah yang telah dibayar dan otomatis menghitung sisa pembayaran.</p>
+                        </div>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Bagian Catatan dan Status</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Pratinjau (Preview) Surat Biaya</h3>
+                        <p>Sistem menampilkan pratinjau surat biaya secara real-time di sisi kanan halaman. Anda dapat melihat tampilan dokumen sambil mengisi data.</p>
+                        <div class="note-box info">
+                            <h4>ℹ️ Nomor Surat Otomatis</h4>
+                            <p>Nomor surat biaya dibuat secara otomatis (auto-generated) mengikuti format tanggal dan urutan penerbitan pada hari tersebut.</p>
+                        </div>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Preview Surat Biaya</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>Simpan & Export DOCX</h3>
+                        <p>Setelah seluruh data terisi dengan benar, klik tombol "Simpan & Export DOCX" untuk:</p>
+                        <ul class="info-list">
+                            <li>Menyimpan data surat biaya ke database</li>
+                            <li>Mengunduh dokumen dalam format Microsoft Word (.docx)</li>
+                        </ul>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Tombol Simpan & Export</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-section">
+                    <h3>🎥 Video Tutorial Buat Surat Biaya</h3>
+                    <div class="video-placeholder">
+                        <video controls width="100%">
+                            <source src="videos/surat-biaya.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung tag video.
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button class="btn-secondary" onclick="navigateTo('ttd')">← Kembali</button>
+                <button class="btn-primary" onclick="navigateTo('list-surat')">Lanjut ke List Surat Biaya →</button>
             </div>
         </section>
 
-        <!-- List Surat Biaya Page -->
-        <section class="page" id="list-surat">
-            <div class="guide-container">
-                <div class="guide-header">
-                    <h1>List Surat Biaya</h1>
-                    <p>Fitur untuk melihat daftar surat biaya yang telah dibuat</p>
-                </div>
+        <!-- List Surat Biaya Section -->
+        <section class="content-section" id="list-surat">
+            <div class="section-header">
+                <h1>List Surat Biaya</h1>
+                <p>Daftar seluruh surat biaya yang telah diterbitkan</p>
+            </div>
 
-                <div class="guide-content">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Mengakses Menu List Surat Biaya</h3>
-                            <p>Klik menu "List Surat Biaya" di sidebar untuk melihat semua surat yang telah dibuat.</p>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/list-surat-1.jpg" alt="Menu List Surat" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Menu List Surat</span>
-                                    <small>Tempatkan gambar: assets/images/list-surat-1.jpg</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="tutorial-card">
+                <h2>📋 Informasi yang Ditampilkan</h2>
+                <ul class="info-list">
+                    <li>Nomor surat</li>
+                    <li>Tanggal surat</li>
+                    <li>Nama pelanggan</li>
+                    <li>Total biaya</li>
+                    <li>Nama penanda tangan</li>
+                    <li>Status pembayaran</li>
+                </ul>
 
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>Mencari dan Filter Surat</h3>
-                            <p>Gunakan kolom pencarian untuk mencari surat berdasarkan nama pelanggan atau nomor surat.</p>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/list-surat-2.jpg" alt="Filter Surat" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Filter Surat</span>
-                                    <small>Tempatkan gambar: assets/images/list-surat-2.jpg</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3>Download dan Cetak Surat</h3>
-                            <p>Klik tombol "Download" atau "Cetak" untuk mengunduh atau mencetak surat biaya.</p>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/list-surat-3.jpg" alt="Download Cetak" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Download Cetak</span>
-                                    <small>Tempatkan gambar: assets/images/list-surat-3.jpg</small>
-                                </div>
-                            </div>
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Cari dan Filter Surat Biaya</h3>
+                        <p>Gunakan fitur pencarian untuk mencari surat berdasarkan nomor, tanggal, atau nama pelanggan. Filter berdasarkan status pembayaran juga tersedia.</p>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Fitur Pencarian dan Filter</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="guide-navigation">
-                    <button class="btn btn-secondary" onclick="navigateTo('buat-surat')">← Sebelumnya</button>
-                    <button class="btn btn-primary" onclick="navigateTo('matriks')">Selanjutnya →</button>
+                <div class="comparison-box">
+                    <h3>👤 Aksi Berdasarkan Role</h3>
+                    
+                    <div class="role-section">
+                        <h4>🔑 Role Admin</h4>
+                        <ul class="info-list">
+                            <li><strong>Lihat Detail:</strong> Melihat detail lengkap surat biaya</li>
+                            <li><strong>Unduh DOCX:</strong> Mengunduh dokumen Word</li>
+                            <li><strong>Update Status:</strong> Mengubah status pembayaran</li>
+                            <li><strong>Hapus:</strong> Menghapus surat biaya</li>
+                        </ul>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot List Surat Biaya (Admin)</p>
+                        </div>
+                    </div>
+
+                    <div class="role-section">
+                        <h4>👷 Role Pegawai</h4>
+                        <ul class="info-list">
+                            <li><strong>Lihat Detail:</strong> Melihat detail lengkap surat biaya</li>
+                            <li><strong>Unduh DOCX:</strong> Mengunduh dokumen Word</li>
+                            <li><strong>Tidak dapat:</strong> Mengubah atau menghapus data</li>
+                        </ul>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot List Surat Biaya (Pegawai)</p>
+                        </div>
+                    </div>
                 </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button class="btn-secondary" onclick="navigateTo('surat-biaya')">← Kembali</button>
+                <button class="btn-primary" onclick="navigateTo('matriks')">Lanjut ke Matriks & Parameter →</button>
             </div>
         </section>
 
-        <!-- Matriks & Parameter Page -->
-        <section class="page" id="matriks">
-            <div class="guide-container">
-                <div class="guide-header">
-                    <h1>Matriks & Parameter</h1>
-                    <p>Fitur untuk mengelola matriks dan parameter sistem</p>
+        <!-- Matriks & Parameter Section -->
+        <section class="content-section" id="matriks">
+            <div class="section-header">
+                <h1>Matriks & Parameter</h1>
+                <p>Kelola data matriks pengujian dan parameter (Hanya untuk Admin)</p>
+            </div>
+
+            <div class="tutorial-card">
+                <div class="note-box info">
+                    <h4>ℹ️ Akses Terbatas</h4>
+                    <p>Halaman ini hanya dapat diakses oleh pengguna dengan role <strong>Admin</strong>.</p>
                 </div>
 
-                <div class="guide-content">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Mengakses Menu Matriks & Parameter</h3>
-                            <p>Klik menu "Matriks & Parameter" di sidebar untuk membuka halaman pengaturan.</p>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/matriks-1.jpg" alt="Menu Matriks" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Menu Matriks</span>
-                                    <small>Tempatkan gambar: assets/images/matriks-1.jpg</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="note-box important">
+                    <h4>⚠️ Penting</h4>
+                    <p>Data pada halaman ini menjadi acuan utama dalam perhitungan biaya pengujian sampel pada halaman Buat Surat Biaya.</p>
+                </div>
 
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>Setting Parameter</h3>
-                            <p>Atur parameter-parameter sistem yang diperlukan untuk perhitungan biaya.</p>
-                            <ul class="instruction-list">
-                                <li>Atur tarif dasar</li>
-                                <li>Set parameter pemakaian</li>
-                                <li>Klik "Simpan" untuk menyimpan perubahan</li>
-                            </ul>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/matriks-2.jpg" alt="Setting Parameter" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Setting Parameter</span>
-                                    <small>Tempatkan gambar: assets/images/matriks-2.jpg</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3>Kelola Matriks Tarif</h3>
-                            <p>Kelola matriks tarif untuk berbagai kategori pelanggan.</p>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/matriks-3.jpg" alt="Matriks Tarif" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Matriks Tarif</span>
-                                    <small>Tempatkan gambar: assets/images/matriks-3.jpg</small>
-                                </div>
-                            </div>
+                <h2>📋 Bagian 1: Data Matriks</h2>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Contoh Matriks Pengujian</h3>
+                        <ul class="info-list">
+                            <li>Air Bersih</li>
+                            <li>Air Permukaan</li>
+                            <li>Air Laut</li>
+                            <li>Udara Ambient</li>
+                            <li>Lingkungan Kerja Fisika</li>
+                            <li>Dan lain-lain</li>
+                        </ul>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Halaman Matriks</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="guide-navigation">
-                    <button class="btn btn-secondary" onclick="navigateTo('list-surat')">← Sebelumnya</button>
-                    <button class="btn btn-primary" onclick="navigateTo('user-sistem')">Selanjutnya →</button>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Kelola Data Matriks</h3>
+                        <p>Admin dapat menambah, mengubah, atau menghapus data matriks sesuai kebutuhan operasional laboratorium.</p>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Form Matriks</p>
+                        </div>
+                    </div>
                 </div>
+
+                <h2>📋 Bagian 2: Data Parameter</h2>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Informasi Parameter</h3>
+                        <p>Setiap matriks memiliki parameter pengujian dengan informasi:</p>
+                        <ul class="info-list">
+                            <li><strong>Nama Parameter:</strong> Jenis parameter yang diuji</li>
+                            <li><strong>Metode:</strong> Metode analisis yang digunakan</li>
+                            <li><strong>Harga:</strong> Tarif pengujian per parameter</li>
+                        </ul>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Halaman Parameter</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Kelola Data Parameter</h3>
+                        <p>Admin dapat menambah, mengubah, atau menghapus parameter pada matriks tertentu.</p>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Form Parameter</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="note-box tip">
+                    <h4>💡 Tujuan Pengelolaan Data</h4>
+                    <p>Pengelolaan data yang terstruktur menjaga kesesuaian antara parameter pengujian, metode analisis, serta tarif yang digunakan dalam perhitungan biaya.</p>
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button class="btn-secondary" onclick="navigateTo('list-surat')">← Kembali</button>
+                <button class="btn-primary" onclick="navigateTo('user')">Lanjut ke User Sistem →</button>
             </div>
         </section>
 
-        <!-- User Sistem Page -->
-        <section class="page" id="user-sistem">
-            <div class="guide-container">
-                <div class="guide-header">
-                    <h1>User Sistem</h1>
-                    <p>Fitur untuk mengelola pengguna sistem (admin)</p>
+        <!-- User Sistem Section -->
+        <section class="content-section" id="user">
+            <div class="section-header">
+                <h1>User Sistem</h1>
+                <p>Kelola akun pengguna sistem (Hanya untuk Admin)</p>
+            </div>
+
+            <div class="tutorial-card">
+                <div class="note-box info">
+                    <h4>ℹ️ Akses Terbatas</h4>
+                    <p>Halaman ini hanya dapat diakses oleh pengguna dengan role <strong>Admin</strong>.</p>
                 </div>
 
-                <div class="guide-content">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Mengakses Menu User Sistem</h3>
-                            <p>Klik menu "User Sistem" di sidebar untuk membuka halaman pengelolaan user.</p>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/user-1.jpg" alt="Menu User Sistem" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Menu User Sistem</span>
-                                    <small>Tempatkan gambar: assets/images/user-1.jpg</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>Menambah User Baru</h3>
-                            <p>Klik tombol "Tambah User" untuk menambahkan pengguna baru ke sistem.</p>
-                            <ul class="instruction-list">
-                                <li>Isi username</li>
-                                <li>Set password</li>
-                                <li>Pilih role/hak akses</li>
-                                <li>Klik "Simpan"</li>
-                            </ul>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/user-2.jpg" alt="Tambah User" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Tambah User</span>
-                                    <small>Tempatkan gambar: assets/images/user-2.jpg</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3>Mengatur Hak Akses</h3>
-                            <p>Atur hak akses untuk setiap user sesuai dengan kebutuhan.</p>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/user-3.jpg" alt="Hak Akses" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Hak Akses</span>
-                                    <small>Tempatkan gambar: assets/images/user-3.jpg</small>
-                                </div>
-                            </div>
+                <h2>📋 Kelola Akun Pengguna</h2>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Tambah User Baru</h3>
+                        <p>Klik tombol tambah untuk membuat akun pengguna baru:</p>
+                        <ul class="info-list">
+                            <li>Username</li>
+                            <li>Password</li>
+                            <li>Role (Admin atau Pegawai)</li>
+                        </ul>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Halaman User Sistem</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="guide-navigation">
-                    <button class="btn btn-secondary" onclick="navigateTo('matriks')">← Sebelumnya</button>
-                    <button class="btn btn-primary" onclick="navigateTo('logout')">Selanjutnya →</button>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Edit User</h3>
+                        <p>Klik tombol edit untuk mengubah data pengguna yang ada.</p>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Form Edit User</p>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Hapus User</h3>
+                        <p>Klik tombol hapus untuk menghapus akun pengguna. Dialog konfirmasi akan muncul sebelum penghapusan.</p>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Dialog Konfirmasi Hapus User</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="note-box warning">
+                    <h4>⚠️ Ketentuan Password</h4>
+                    <p>Sistem menerapkan ketentuan keamanan password:</p>
+                    <ul class="info-list">
+                        <li>Minimal 8 karakter</li>
+                        <li>Harus mengandung huruf besar</li>
+                        <li>Harus mengandung huruf kecil</li>
+                        <li>Harus mengandung angka</li>
+                        <li>Harus mengandung simbol</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button class="btn-secondary" onclick="navigateTo('matriks')">← Kembali</button>
+                <button class="btn-primary" onclick="navigateTo('logout')">Lanjut ke Logout →</button>
             </div>
         </section>
 
-        <!-- Logout Page -->
-        <section class="page" id="logout">
-            <div class="guide-container">
-                <div class="guide-header">
-                    <h1>Logout</h1>
-                    <p>Cara keluar dari sistem dengan aman</p>
-                </div>
+        <!-- Logout Section -->
+        <section class="content-section" id="logout">
+            <div class="section-header">
+                <h1>Logout</h1>
+                <p>Cara keluar dari sistem dengan aman</p>
+            </div>
 
-                <div class="guide-content">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Klik Tombol Logout</h3>
-                            <p>Klik tombol "Logout" yang terletak di pojok kanan atas halaman atau di menu sidebar.</p>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/logout-1.jpg" alt="Tombol Logout" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Tombol Logout</span>
-                                    <small>Tempatkan gambar: assets/images/logout-1.jpg</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>Konfirmasi Logout</h3>
-                            <p>Sistem akan menampilkan konfirmasi. Klik "Ya" untuk melanjutkan logout.</p>
-                            <div class="screenshot-placeholder">
-                                <img src="assets/images/logout-2.jpg" alt="Konfirmasi Logout" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                                <div class="placeholder-text">
-                                    <span>📷 Screenshot Konfirmasi Logout</span>
-                                    <small>Tempatkan gambar: assets/images/logout-2.jpg</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3>Selesai</h3>
-                            <p>Anda akan diarahkan kembali ke halaman login. Pastikan untuk logout setelah selesai menggunakan sistem untuk keamanan.</p>
-                            <div class="info-box">
-                                <strong>💡 Tips:</strong> Selalu logout setelah selesai bekerja untuk menjaga keamanan data.
-                            </div>
+            <div class="tutorial-card">
+                <h2>📋 Langkah-langkah Logout</h2>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Klik Tombol Logout</h3>
+                        <p>Temukan tombol logout pada menu navigasi atau pojok kanan atas halaman.</p>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Tombol Logout</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="guide-navigation">
-                    <button class="btn btn-secondary" onclick="navigateTo('user-sistem')">← Sebelumnya</button>
-                    <button class="btn btn-primary" onclick="navigateTo('home')">Kembali ke Beranda</button>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Konfirmasi Logout</h3>
+                        <p>Sistem akan menampilkan dialog konfirmasi. Klik "Ya" untuk melanjutkan logout.</p>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Dialog Konfirmasi Logout</p>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Redirect ke Halaman Login</h3>
+                        <p>Setelah logout, Anda akan diarahkan kembali ke halaman login.</p>
+                        <div class="screenshot-placeholder">
+                            <p>📷 Screenshot Halaman Login Setelah Logout</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="note-box tip">
+                    <h4>💡 Tips Keamanan</h4>
+                    <p>Selalu lakukan logout setelah selesai menggunakan aplikasi, terutama jika menggunakan komputer bersama atau di tempat umum.</p>
+                </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button class="btn-secondary" onclick="navigateTo('user')">← Kembali</button>
+                <button class="btn-primary" onclick="navigateTo('home')">Kembali ke Beranda →</button>
             </div>
         </section>
     </main>

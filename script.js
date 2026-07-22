@@ -1,144 +1,235 @@
-/**
- * JAVASCRIPT UTAMA - Panduan Penggunaan SIPALING
- * Fungsi: Navigasi antar halaman dan interaksi UI
- */
+// ==========================================
+// NAVIGATION SYSTEM
+// ==========================================
 
-// ============================================
-// VARIABEL GLOBAL
-// ============================================
-
+// Get all navigation links
+const navLinks = document.querySelectorAll('.nav-link');
+const contentSections = document.querySelectorAll('.content-section');
 const sidebar = document.getElementById('sidebar');
 const menuToggle = document.getElementById('menuToggle');
-const menuItems = document.querySelectorAll('.menu-item');
-const pages = document.querySelectorAll('.page');
-
-// ============================================
-// FUNGSI NAVIGASI HALAMAN
-// ============================================
 
 /**
- * Fungsi untuk berpindah ke halaman tertentu
- * @param {string} pageId - ID halaman yang dituju
+ * Navigate to a specific section
+ * @param {string} sectionId - The ID of the section to navigate to
  */
-function navigateTo(pageId) {
-    // Sembunyikan semua halaman
-    pages.forEach(page => {
-        page.classList.remove('active');
+function navigateTo(sectionId) {
+    // Hide all sections
+    contentSections.forEach(section => {
+        section.classList.remove('active');
     });
-
-    // Tampilkan halaman yang dipilih
-    const targetPage = document.getElementById(pageId);
-    if (targetPage) {
-        targetPage.classList.add('active');
+    
+    // Remove active class from all nav links
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // Show the target section
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+        targetSection.classList.add('active');
     }
-
-    // Update menu aktif di sidebar
-    menuItems.forEach(item => {
-        item.classList.remove('active');
-        if (item.getAttribute('data-page') === pageId) {
-            item.classList.add('active');
-        }
-    });
-
-    // Scroll ke atas halaman
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    // Tutup sidebar di mobile setelah navigasi
+    
+    // Add active class to the corresponding nav link
+    const targetLink = document.querySelector(`[data-section="${sectionId}"]`);
+    if (targetLink) {
+        targetLink.classList.add('active');
+    }
+    
+    // Close mobile menu after navigation
     if (window.innerWidth <= 768) {
         sidebar.classList.remove('active');
     }
+    
+    // Scroll to top of the page
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 }
 
-// ============================================
-// EVENT LISTENER MENU NAVIGASI
-// ============================================
-
-// Tambahkan event listener ke setiap menu item
-menuItems.forEach(item => {
-    item.addEventListener('click', function(e) {
+/**
+ * Handle navigation link clicks
+ */
+navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
         e.preventDefault();
-        const pageId = this.getAttribute('data-page');
-        navigateTo(pageId);
+        const sectionId = link.getAttribute('data-section');
+        navigateTo(sectionId);
     });
 });
 
-// ============================================
+// ==========================================
 // MOBILE MENU TOGGLE
-// ============================================
+// ==========================================
 
 /**
- * Toggle sidebar untuk tampilan mobile
+ * Toggle mobile sidebar menu
  */
-if (menuToggle) {
-    menuToggle.addEventListener('click', function() {
-        sidebar.classList.toggle('active');
-    });
-}
+menuToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+});
 
-// ============================================
-// TUTUP SIDEBAR KETIKA KLIK DI LUAR (MOBILE)
-// ============================================
-
-document.addEventListener('click', function(e) {
-    // Hanya berlaku untuk tampilan mobile
+/**
+ * Close sidebar when clicking outside on mobile
+ */
+document.addEventListener('click', (e) => {
     if (window.innerWidth <= 768) {
-        // Cek apakah klik di luar sidebar dan bukan tombol toggle
         if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
             sidebar.classList.remove('active');
         }
     }
 });
 
-// ============================================
-// HANDLE RESIZE WINDOW
-// ============================================
-
-/**
- * Reset sidebar state saat window di-resize
- */
-window.addEventListener('resize', function() {
-    if (window.innerWidth > 768) {
-        sidebar.classList.remove('active');
-    }
-});
-
-// ============================================
+// ==========================================
 // KEYBOARD NAVIGATION
-// ============================================
+// ==========================================
 
 /**
- * Navigasi menggunakan keyboard (Arrow keys)
+ * Handle keyboard navigation
+ * Supports arrow keys for navigation between sections
  */
-document.addEventListener('keydown', function(e) {
-    const currentPage = document.querySelector('.page.active');
-    if (!currentPage) return;
-
-    const currentPageId = currentPage.id;
-    const pageOrder = ['home', 'login', 'dashboard', 'data-pelanggan', 'data-ttd', 'buat-surat', 'list-surat', 'matriks', 'user-sistem', 'logout'];
-    const currentIndex = pageOrder.indexOf(currentPageId);
-
-    // Navigasi dengan panah kanan (next)
-    if (e.key === 'ArrowRight' && currentIndex < pageOrder.length - 1) {
-        navigateTo(pageOrder[currentIndex + 1]);
+document.addEventListener('keydown', (e) => {
+    const activeSection = document.querySelector('.content-section.active');
+    const sectionId = activeSection ? activeSection.id : 'home';
+    
+    // Get all section IDs in order
+    const sectionIds = [
+        'home',
+        'login',
+        'dashboard',
+        'pelanggan',
+        'ttd',
+        'surat-biaya',
+        'list-surat',
+        'matriks',
+        'user',
+        'logout'
+    ];
+    
+    const currentIndex = sectionIds.indexOf(sectionId);
+    
+    // Arrow right or down - next section
+    if ((e.key === 'ArrowRight' || e.key === 'ArrowDown') && currentIndex < sectionIds.length - 1) {
+        e.preventDefault();
+        navigateTo(sectionIds[currentIndex + 1]);
     }
-
-    // Navigasi dengan panah kiri (previous)
-    if (e.key === 'ArrowLeft' && currentIndex > 0) {
-        navigateTo(pageOrder[currentIndex - 1]);
+    
+    // Arrow left or up - previous section
+    if ((e.key === 'ArrowLeft' || e.key === 'ArrowUp') && currentIndex > 0) {
+        e.preventDefault();
+        navigateTo(sectionIds[currentIndex - 1]);
     }
 });
 
-// ============================================
-// INISIALISASI
-// ============================================
+// ==========================================
+// INITIAL LOAD
+// ==========================================
 
 /**
- * Inisialisasi saat halaman dimuat
+ * Initialize the application on page load
  */
-document.addEventListener('DOMContentLoaded', function() {
-    // Pastikan halaman home aktif saat pertama kali dimuat
+document.addEventListener('DOMContentLoaded', () => {
+    // Show home section by default
     navigateTo('home');
     
-    // Log untuk debugging (opsional, bisa dihapus di production)
-    console.log('Panduan SIPALING - JavaScript loaded successfully');
+    // Log initialization
+    console.log('SIPALING Documentation Website loaded successfully');
 });
+
+// ==========================================
+// UTILITY FUNCTIONS
+// ==========================================
+
+/**
+ * Check if element is in viewport
+ * @param {HTMLElement} element - The element to check
+ * @returns {boolean} - True if element is in viewport
+ */
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+/**
+ * Add scroll animation to elements
+ */
+function addScrollAnimation() {
+    const elements = document.querySelectorAll('.step, .feature-card, .info-box');
+    
+    elements.forEach(element => {
+        if (isInViewport(element)) {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }
+    });
+}
+
+// Add scroll event listener for animations
+window.addEventListener('scroll', addScrollAnimation);
+
+// ==========================================
+// VIDEO HANDLING
+// ==========================================
+
+/**
+ * Handle video loading errors
+ * Provides fallback message if video fails to load
+ */
+document.querySelectorAll('video').forEach(video => {
+    video.addEventListener('error', () => {
+        const placeholder = video.closest('.video-placeholder');
+        if (placeholder) {
+            placeholder.innerHTML = `
+                <div style="padding: 2rem; text-align: center; color: #718096;">
+                    <p>🎥 Video tidak tersedia</p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Silakan tambahkan file video di folder videos/</p>
+                </div>
+            `;
+        }
+    });
+});
+
+// ==========================================
+// PRINT FUNCTIONALITY
+// ==========================================
+
+/**
+ * Add print button functionality
+ * Allows users to print the current section
+ */
+function printSection() {
+    window.print();
+}
+
+// ==========================================
+// ACCESSIBILITY IMPROVEMENTS
+// ==========================================
+
+/**
+ * Add ARIA attributes for better accessibility
+ */
+function improveAccessibility() {
+    // Add aria-label to navigation
+    navLinks.forEach(link => {
+        const sectionName = link.textContent.trim();
+        link.setAttribute('aria-label', `Navigate to ${sectionName}`);
+    });
+    
+    // Add aria-label to menu toggle
+    menuToggle.setAttribute('aria-label', 'Toggle navigation menu');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    
+    // Update aria-expanded when menu is toggled
+    menuToggle.addEventListener('click', () => {
+        const isExpanded = sidebar.classList.contains('active');
+        menuToggle.setAttribute('aria-expanded', isExpanded);
+    });
+}
+
+// Initialize accessibility improvements
+improveAccessibility();
