@@ -151,10 +151,6 @@ Edit file `index.html` untuk mengubah:
 - Vanilla JavaScript (tanpa framework)
 - Compatible dengan semua modern browser
 
-## 📞 Support
-
-Jika ada pertanyaan atau masalah, hubungi tim IT DLHK.
-
 ---
 
 **Dibuat untuk:** Pegawai DLHK
